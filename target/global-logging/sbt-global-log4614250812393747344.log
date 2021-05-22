@@ -1,0 +1,68 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(all {file:/Users/vikramsingh/work/petProject/RevenueCalculator/}revenuecalculator/products {file:/Users/vikramsingh/work/petProject/RevenueCalculator/}revenuecalculator/test:products, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / products, Test / products[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/vikramsingh/work/petProject/RevenueCalculator/target/scala-2.12/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:8:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval productSchema = new StructType()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:16:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval ordersSchema = new StructType()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:22:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval ordersItemsSchema = new StructType()[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:30:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval customersSchema = StructType([0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:45:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval categories = spark.read[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:49:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval ordersItems = spark.read[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:53:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval orders = spark.read[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:57:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval customers = spark.read[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:61:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval products = spark.read[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:67:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mcategories.printSchema[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:68:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mcustomers.printSchema[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:69:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0morders.printSchema[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:70:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mordersItems.printSchema[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:71:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mproducts.printSchema[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:75:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval filteredOrders = orders.filter("order_status IN ('COMPLETE', 'CLOSED', 'PENDING')")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:79:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval joinResult = filteredOrders[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:90:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval concattedCustomerName = joinResult[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:97:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mval result = concattedCustomerName.groupBy("month", "name")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:104:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mspark.conf.set("spark.sql.shuffle.partitions", 2)[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/vikramsingh/work/petProject/RevenueCalculator/CalculateRevenue.scala:105:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mresult.write.mode("overwrite").csv("/FileStore/tables/retaildb/monthlyRevenue")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m20 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed 22 May, 2021 6:25:51 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
