@@ -1,10 +1,17 @@
 package monthlyProductRevenue
+
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
+import java.util.Properties
+
 object GetMonthlyProductRevenue {
   def main(args: Array[String]): Unit = {
+
+    val connectionProperties = new Properties()
+    connectionProperties.put("user", "vikram")
+    connectionProperties.put("password", "mypassword")
 
     val spark = SparkSession
       .builder()
@@ -53,23 +60,38 @@ object GetMonthlyProductRevenue {
       .schema(ordersItemsSchema)
       .csv("retail_db/order_items/part-00000")
 
+    ordersItems.write
+      .jdbc("jdbc:postgresql:orderitem", "OrderItems", connectionProperties)
+
+
     val orders = spark.read
       .schema(ordersSchema)
       .csv("retail_db/orders/part-00000")
 
+    orders.write
+      .jdbc("jdbc:postgresql:orders", "Orders", connectionProperties)
+
     val customers = spark.read
       .schema(customersSchema)
       .csv("retail_db/customers/part-00000")
+
+    customers.write
+      .format("jdbc")
+      .option("url", "jdbc:postgresql:customers")
+      .option("dbtable", "customers")
+      .option("user", "vikram")
+      .option("password", "mypassword")
+      .save()
 
     val products = spark.read
       .schema(productSchema)
       .csv("retail_db/products/part-00000")
 
     val filteredOrders = orders.filter("order_status IN ('COMPLETE', 'CLOSED', 'PENDING')")
-    
-    val joinResult : DataFrame = filteredOrders
+
+    val joinResult: DataFrame = filteredOrders
       .join(ordersItems, filteredOrders("order_id") === ordersItems("order_item_order_id"))
-      .join(customers, filteredOrders.col("order_customer_id") === customers.col("customer_id") )
+      .join(customers, filteredOrders.col("order_customer_id") === customers.col("customer_id"))
       .select("customer_fname", "customer_lname", "order_date", "order_item_subtotal")
 
     val concattedCustomerName = joinResult
@@ -81,8 +103,7 @@ object GetMonthlyProductRevenue {
 
     val result = concattedCustomerName.groupBy("month", "name")
       .agg(round(sum("order_item_subtotal"), 2).as("revenue"))
-      .orderBy(asc("month"),asc("revenue"))
+      .orderBy(asc("month"), asc("revenue"))
 
-    result.write.mode("overwrite").csv("retail_db/monthlyRevenue")
   }
 }
